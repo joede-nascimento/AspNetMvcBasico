@@ -1,2 +1,2 @@
-# AspNetMvcBasico
+# AspNetCoreMvcBasico
 Aplicação para controle de palavras
