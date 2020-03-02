@@ -1,0 +1,46 @@
+﻿@model Site01.Models.Palavra
+@{
+    //Layout = "_Layout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Palavra - Cadastrar";
+}
+
+        <h2>Cadastrar</h2>
+        <form method="post">
+            <input type="hidden" name="id" value="@Model.Id" />
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" class="form-control" value="@Model.Nome" id="nome" placeholder="digite o seu nome">
+                @Html.ValidationMessage("nome")
+            </div>
+
+            <div class="form-group">
+               
+                <label for="nivel">Nivel</label>
+                <select name="nivel" class="form-control">
+                    option
+                    @foreach (var nivel in ViewBag.Nivel)
+                    {
+                        @if (nivel.Id == Model.Nivel)
+                        {
+                            <option value="@nivel.Id" selected>@nivel.Nome</option>
+                        }
+                        else
+                        {
+                            <option value="@nivel.Id">@nivel.Nome</option>
+                        }
+
+                    }
+                </select>
+                @*<input type="text" name="nivel" class="form-control" value="@Model.Nivel" id="nivel" placeholder="digite o seu nivel 1-Facil 2-medio 3-dificl">*@
+                @Html.ValidationMessage("nivel")
+            </div>
+
+
+
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+
+
